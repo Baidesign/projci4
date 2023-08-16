@@ -46,6 +46,7 @@
             </div>
         </div>    
     </nav>
+    
     <div class="container-fluid">
         <?= $this->renderSection('content') ?>
     </div>

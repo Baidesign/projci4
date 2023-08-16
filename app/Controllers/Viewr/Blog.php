@@ -43,4 +43,14 @@ class Blog extends BaseController
         return view('home', $data);
         
     }
+
+    public function new()
+    {
+        $data = [
+            'meta_title' => 'New Post',
+            'title' => 'This is an NEw POst',
+        ];
+
+        return view('new_post', $data);
+    }
 }
