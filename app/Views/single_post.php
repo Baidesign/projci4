@@ -4,10 +4,5 @@
 
 <h1><?= $title ?></h1>
 
-<div>
-    <?php foreach($postys as $post) : ?>
-        <?= view_cell('\App\Libraries\Blog::tunarudiaStuff', ['blogys' => $post]) ?>
-    <?php endforeach; ?>
-
-</div>
+<h1>this is a cool stuff</h1>
 <?= $this->endSection() ?>

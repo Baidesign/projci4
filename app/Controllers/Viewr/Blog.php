@@ -3,6 +3,7 @@
 namespace App\Controllers\Viewr;
 
 use App\Controllers\BaseController;
+use App\Models\BlogModel;
 
 class Blog extends BaseController
 {
@@ -22,15 +23,24 @@ class Blog extends BaseController
         //
     }
 
-    public function post()
+    public function post($id)
     {
-        $data = [
-            
-            'title' => 'Post are found here',
-        ];
-
-       $postys = [ 'Kuja','Hapa'];
-       $data['postys'] = $postys;
+        $model = new BlogModel();
+        $post = $model->find($id);
+        if($post) {
+            $data = [
+                'meta_title' => $post['post_title'],
+                'title' => $post['post_title'],
+            ];
+           
+        }
+        else{
+            $data = [
+                'meta_title' => 'Post not Found',
+                'title' => 'Post Not Found',
+            ];
+        
+        }
         return view('single_post', $data);
     }
 
@@ -50,7 +60,10 @@ class Blog extends BaseController
             'meta_title' => 'New Post',
             'title' => 'This is an NEw POst',
         ];
-
+        if($this->request->getMethod()=='post'){
+            $model = new BlogModel();
+            $model->save($_POST);
+        }
         return view('new_post', $data);
     }
 }

@@ -82,7 +82,7 @@ $routes->group('redo',function($routes){
 $routes->add('bloggy', 'Viewr\Blog::index');
 $routes->add('post', 'Viewr\Blog::post');
 $routes->add('home', 'Viewr\Blog::home');
-
+$routes->add('new', 'Viewr\Blog::new');
 /*
  * --------------------------------------------------------------------
  * Additional Routing
