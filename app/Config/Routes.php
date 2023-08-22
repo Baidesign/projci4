@@ -79,10 +79,16 @@ $routes->group('redo',function($routes){
     $routes->post('meso/new', 'Meso\Blog::saveApage');
 });
 
+$routes->group('blog',function($routes){
+    $routes->add('bloggy', 'Viewr\Blog::index');
+    $routes->post('post/new/(:$id)', 'Viewr\Blog::post/$id');
+});
+
 $routes->add('bloggy', 'Viewr\Blog::index');
-$routes->add('post', 'Viewr\Blog::post');
+$routes->post('post', 'Viewr\Blog::post');
 $routes->add('home', 'Viewr\Blog::home');
 $routes->add('new', 'Viewr\Blog::new');
+$routes->add('combo', 'Viewr\Blog::combo');
 /*
  * --------------------------------------------------------------------
  * Additional Routing
