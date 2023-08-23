@@ -12,7 +12,7 @@ class Posts extends BaseController{
         $db = db_connect();
         $model = new CustomModel($db);
 
-        $result = $model->all();
+        $result = $model->kuja();
         
         echo '<pre>';
         print_r($result);

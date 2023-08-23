@@ -1,19 +1,29 @@
 <?php
 namespace App\Models;
 
-use CodeIgniter\Model;
+
 
 //we have to specify which database connection that we are using
 use CodeIgniter\Database\ConnectionInterface;
 
 
-
-class CustomModel extends Model{
+/**
+ * Summary of CustomModel
+ */
+class CustomModel{
     //this a model to create query
     //we co
+    /**
+     * Summary of db
+     * @var 
+     */
     protected $db;
     //we use the $db to get the reference of the db instant
 
+    /**
+     * Summary of __construct
+     * @param \CodeIgniter\Database\ConnectionInterface $db
+     */
     public function __construct( ConnectionInterface &$db){
         $this->db =& $db;
     }
@@ -25,19 +35,18 @@ class CustomModel extends Model{
      */
  
 
-    function all(){
-        //select from posts
-        //this is to run our query frim our database
-        //we use get to access our database
-        //and getresult to display our query results
-
-        $results = $this->db->table('posts')
-                        ->get()
-                        ->getResult();
-        return ($results);
-        
+     function kuja() {
+       // return $this->db->table('posts')->get()->getResult()
+       return $this->db->table('posts')
+                       ->select('*')
+                       ->get()
+                       ->getResult();
     }
     
+    /**
+     * Summary of where
+     * @return \stdClass|array|object|null
+     */
     function where()
     {
         // to remove the array from our page we will
@@ -48,6 +57,10 @@ class CustomModel extends Model{
                         ->get()
                         ->getRow();
     }
+    /**
+     * Summary of range
+     * @return \stdClass|array|object|null
+     */
     function range()
     {
         //if we want a certain  range of object we can specify like this
@@ -57,6 +70,10 @@ class CustomModel extends Model{
                         ->getRow();
     }
 
+    /**
+     * Summary of rnagebtwn
+     * @return array
+     */
     function rnagebtwn()
     //here we can use either the > and < or the >= and <=
     //to give values from 11-24 or 10-25 respectively
@@ -68,6 +85,10 @@ class CustomModel extends Model{
                         ->getResult();
     }
 
+    /**
+     * Summary of asordis
+     * @return array
+     */
     function asordis()
     //this is to give as an ascending or descending order
     // we use the code DESC and ASC
@@ -79,6 +100,10 @@ class CustomModel extends Model{
                         ->get()
                         ->getResult();
     }
+    /**
+     * Summary of getPosts
+     * @return array
+     */
     function getPosts(){
         //
         $builder = $this->db->table('posts');
